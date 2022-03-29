@@ -19,5 +19,6 @@
         <module>account.common</module>
         <module>account.query</module>
     </modules>
+    <packaging>pom</packaging>
 
 </project>
