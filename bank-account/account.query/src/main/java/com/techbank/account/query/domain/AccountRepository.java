@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface AccountRepository extends CrudRepository<BankAccount, String> {
 
     Optional<BankAccount> findByAccountHolder(String accountHolder);
-    List<BaseEntity> findByBalanceGraterThan(double balance);
+    List<BaseEntity> findByBalanceGreaterThan(double balance);
     List<BaseEntity> findByBalanceLessThan(double balance);
 }
