@@ -5,19 +5,25 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
-    hibernete:
-      dll-auto: update
+    hibernate:
+      ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/BankAccount?createDatabaseIfNotExixt=true
+    url: jdbc:mysql://localhost:3306/BankAccount?createDatabaseIfNotExist=true
     username: root
     password: password
 
   kafka:
-    listner:
+    listener:
       ack-mode: MANUAL_IMMEDIATE
     consumer:
-      bootstrap-server: localhost:9092
+      bootstrap-servers: localhost:9092
       group-id: bankaccConsumer
-      auto-offset-reset: earlist
-      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+
