@@ -30,7 +30,7 @@ public class AccountCommandHandler implements CommandHandler{
         if(command.getAmount() > aggregate.getBalance()){
             throw new IllegalStateException("No sufficient fund");
         }
-        aggregate.depositFund(command.getAmount());
+        aggregate.withdrawFund(command.getAmount());
         eventSourcingHandler.save(aggregate);
     }
 

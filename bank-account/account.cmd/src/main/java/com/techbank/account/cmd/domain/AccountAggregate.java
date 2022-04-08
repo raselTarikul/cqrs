@@ -43,6 +43,7 @@ public class AccountAggregate extends AggregateRoot {
             throw new IllegalStateException("Deposit amount should be Grater than zero");
         }
         raiseEvent(FundDepositedEvent.builder()
+                .id(this.id)
                 .amount(amount)
                 .build());
     }
